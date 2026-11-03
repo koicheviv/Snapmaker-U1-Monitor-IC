@@ -16,6 +16,24 @@ The idea is simple: to make it easier to monitor the printer from an Android pho
 - Automatically locks the phone screen 15 minutes after printing finishes.
 - Uses Android Accessibility Service to lock the screen on supported Android versions.
 
+### Android permissions and why the app needs them
+
+The app requests only the Android permissions needed for printer monitoring and its screen-management features:
+
+- **Internet access (INTERNET)** – allows the app to communicate with the Snapmaker U1 over the network.
+- **Network state (ACCESS_NETWORK_STATE)** – lets the app check network connectivity.
+- **Wi-Fi state (ACCESS_WIFI_STATE)** – supports the Wi-Fi monitoring connection.
+- **Wake lock (WAKE_LOCK)** – keeps the CPU awake during monitoring and briefly wakes the display when a new print is detected.
+
+Some features require the user to enable a special Android setting:
+
+- **Accessibility Service** – must be enabled manually in Android Settings. The app uses it only to request the system's screen-lock action. It does **not** retrieve or read window contents (canRetrieveWindowContent=false).
+- **Device Administrator** – used as the screen-lock method on older Android versions (Android 8.1 / API 27 and earlier). It requests only the **Force lock** policy. On Android 9 / API 28 and later, the app uses the Accessibility screen-lock action instead.
+
+**Notifications:** On Android 13 and later, Android requires the **POST_NOTIFICATIONS** runtime permission before the app can show print-start notifications. The app asks for this permission when notification support is initialized. Notifications are disabled on LG devices because the existing screen-wake behavior works there.
+
+The Accessibility Service and Device Administrator options are controlled by the user in Android Settings and can be disabled there. The app does not need access to contacts, SMS, the camera, or the microphone.
+
 ### Device compatibility
 
 I've tested the application on four devices:
