@@ -79,8 +79,12 @@ public class AndroidScreenController
             if (string.IsNullOrWhiteSpace(enabledServices))
                 return false;
 
+            string? packageName = _appContext.PackageName;
+            if (string.IsNullOrWhiteSpace(packageName))
+                return false;
+
             var component = new ComponentName(
-                _appContext.PackageName,
+                packageName,
                 AccessibilityLockServiceClass);
 
             string expected = component.FlattenToString();
