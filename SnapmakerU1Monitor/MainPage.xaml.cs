@@ -286,6 +286,11 @@ public partial class MainPage : ContentPage
 
         _updateCts = new CancellationTokenSource();
 
+#if ANDROID
+        // Keep the CPU and Wi-Fi awake only while the printer update loop runs.
+        _screenController?.StartMonitoring();
+#endif
+
         _updateTask =
             RunUpdateLoopAsync(_updateCts.Token);
     }
@@ -762,6 +767,10 @@ public partial class MainPage : ContentPage
         }
         finally
         {
+#if ANDROID
+            // Release both wake locks whenever monitoring stops or fails.
+            _screenController?.StopMonitoring();
+#endif
             Diagnostics.Log("UPDATE LOOP STOPPED");
         }
     }
