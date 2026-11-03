@@ -48,6 +48,10 @@ public sealed class ScreenLockAccessibilityService : AccessibilityService
 
         try
         {
+            // GLOBAL_ACTION_LOCK_SCREEN is available only on Android 9 / API 28+.
+            if (!OperatingSystem.IsAndroidVersionAtLeast(28))
+                return false;
+
             // Use Android's system lock action rather than DevicePolicyManager.LockNow().
             // Whether biometrics remain available is device/OEM dependent and must be tested.
             return service.PerformGlobalAction(GlobalAction.LockScreen);
