@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="SnapmakerU1Monitor.MainPage"
+    Shell.NavBarIsVisible="False"
+    BackgroundColor="#080808">
+
+    <Grid Padding="14,10" RowDefinitions="Auto,*,Auto">
+
+        <!-- Application header -->
+        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="6">
+            <Label x:Name="HeaderLabel"
+                   Text="Snapmaker U1 Monitor IC"
+                   TextColor="White"
+                   FontSize="17"
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"
+                   LineBreakMode="TailTruncation" />
+
+            <Button x:Name="SettingsButton"
+                    Grid.Column="1"
+                    Text="SETTINGS"
+                    FontSize="12"
+                    BackgroundColor="Transparent"
+                    TextColor="White"
+                    Padding="7,9"
+                    Clicked="OnSettingsClicked" />
+        </Grid>
+
+        <!-- Responsive content: portrait uses one column; landscape uses three. -->
+        <ScrollView Grid.Row="1"
+                    VerticalScrollBarVisibility="Always"
+                    HorizontalScrollBarVisibility="Never">
+
+            <Grid x:Name="ResponsiveGrid"
+                  Padding="0,8,0,12"
+                  RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
+                  ColumnDefinitions="*"
+                  RowSpacing="14"
+                  ColumnSpacing="14">
+
+                <Label x:Name="StatusLabel"
+                       Grid.Row="0"
+                       Text="STANDBY"
+                       TextColor="#00D66B"
+                       FontSize="44"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center" />
+
+                <!-- Thumbnail and filename -->
+                <Grid x:Name="JobGrid"
+                      Grid.Row="1"
+                      ColumnDefinitions="100,*"
+                      ColumnSpacing="12"
+                      VerticalOptions="Center">
+
+                    <Image x:Name="JobThumbnail"
+                           WidthRequest="90"
+                           HeightRequest="90"
+                           Aspect="AspectFit" />
+
+                    <Label Grid.Column="1"
+                           x:Name="JobLabel"
+                           Text="No active print"
+                           TextColor="White"
+                           FontSize="17"
+                           VerticalTextAlignment="Center"
+                           LineBreakMode="WordWrap" />
+                </Grid>
+
+                <ProgressBar x:Name="PrintProgress"
+                             Grid.Row="2"
+                             Progress="0"
+                             ProgressColor="#00D66B"
+                             BackgroundColor="#333333"
+                             HeightRequest="12"
+                             VerticalOptions="Center" />
+
+                <Label x:Name="ProgressLabel"
+                       Grid.Row="3"
+                       Text="0%"
+                       TextColor="White"
+                       FontSize="26"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center" />
+
+                <!-- Elapsed and remaining time -->
+                <Grid x:Name="TimeGrid"
+                      Grid.Row="4"
+                      ColumnDefinitions="*,*"
+                      ColumnSpacing="10">
+
+                    <VerticalStackLayout Spacing="5">
+                        <Label x:Name="ElapsedTitleLabel"
+                               Text="ELAPSED TIME"
+                               TextColor="#999999"
+                               FontSize="11"
+                               HorizontalTextAlignment="Center" />
+
+                        <Label x:Name="ElapsedLabel"
+                               Text="00:00:00"
+                               TextColor="White"
+                               FontSize="20"
+                               HorizontalTextAlignment="Center" />
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Grid.Column="1"
+                                         Spacing="5">
+                        <Label x:Name="RemainingTitleLabel"
+                               Text="TIME REMAINING"
+                               TextColor="#999999"
+                               FontSize="11"
+                               HorizontalTextAlignment="Center" />
+
+                        <Label x:Name="RemainingLabel"
+                               Text="Calculating..."
+                               TextColor="#00D66B"
+                               FontSize="20"
+                               HorizontalTextAlignment="Center" />
+                    </VerticalStackLayout>
+                </Grid>
+
+                <!-- Estimated finish time -->
+                <VerticalStackLayout x:Name="FinishGrid"
+                                     Grid.Row="5"
+                                     Spacing="5"
+                                     Padding="0,5,0,5">
+
+                    <Label x:Name="FinishTitleLabel"
+                           Text="ESTIMATED FINISH"
+                           TextColor="#999999"
+                           FontSize="12"
+                           HorizontalTextAlignment="Center" />
+
+                    <Label x:Name="FinishTimeLabel"
+                           Text="--:--"
+                           TextColor="#00BFFF"
+                           FontSize="27"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center" />
+                </VerticalStackLayout>
+            </Grid>
+        </ScrollView>
+
+        <!-- Footer -->
+        <Label x:Name="FooterLabel"
+               Grid.Row="2"
+               Text="Snapmaker U1 Monitor IC"
+               TextColor="#777777"
+               FontSize="11"
+               HorizontalTextAlignment="Center" />
+
+    </Grid>
+</ContentPage>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="snapmaker_screen_lock_accessibility_description">Locks the screen after the configured 15-minute idle period. It does not request access to screen content.</string>
+</resources>
