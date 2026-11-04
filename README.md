@@ -61,3 +61,32 @@ https://github.com/koicheviv/Snapmaker-U1-Monitor-IC
 Any feedback, suggestions, and ideas are welcome!
 
 Thanks!
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Snapmaker U1 Monitor IC – Android App
+
+<details>
+<summary><strong>📥 DOWNLOAD – Snapmaker U1 Monitor IC v1.0.0</strong></summary>
+
+**[Download APK files – Version 1.0.0](https://github.com/koicheviv/Snapmaker-U1-Monitor-IC/releases/tag/v1.0.0)**
+
+Open the release and expand **Assets** to find the APK files.
+
+</details>
+
+---
+
+An independent Android application for monitoring your Snapmaker U1 over your local network (LAN).
+
+**Features**
+- Live printer monitoring
+- Print activity detection
+- Automatic screen wake-up
+- Screen stays awake during printing
+- Automatic screen lock after printing
+
+This is an independent community project, not an official Snapmaker application.
+
+---
+
+[View all releases](https://github.com/koicheviv/Snapmaker-U1-Monitor-IC/releases)
+
