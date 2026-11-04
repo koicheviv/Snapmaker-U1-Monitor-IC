@@ -1,12 +1,18 @@
 # Snapmaker U1 Monitor IC – Android App
 
-Hello everyone!
+An independent Android app for monitoring a **Snapmaker U1** over your local network (LAN) and automating a few useful phone-screen actions.
 
-I'd like to share a small independent project I've been developing for the **Snapmaker U1**: **Snapmaker U1 Monitor IC**.
+> This is an independent community project, not an official Snapmaker application.
 
-The idea is simple: to make it easier to monitor the printer from an Android phone and automate a few useful actions.
+## 📥 Download
 
-### Current features
+**[Download Snapmaker U1 Monitor IC v1.0.0](https://github.com/koicheviv/Snapmaker-U1-Monitor-IC/releases/tag/v1.0.0)**
+
+Open the release page and expand **Assets** to find the available APK files.
+
+[View all releases](https://github.com/koicheviv/Snapmaker-U1-Monitor-IC/releases)
+
+## Features
 
 - Connects to the Snapmaker U1 over the local network (LAN).
 - Monitors printer status and print activity.
@@ -16,25 +22,33 @@ The idea is simple: to make it easier to monitor the printer from an Android pho
 - Automatically locks the phone screen 15 minutes after printing finishes.
 - Uses Android Accessibility Service to lock the screen on supported Android versions.
 
-### Android permissions and why the app needs them
+## Android permissions and why the app needs them
 
-The app requests only the Android permissions needed for printer monitoring and its screen-management features:
+The app requests only the Android permissions needed for printer monitoring and its screen-management features.
 
-- **Internet access (INTERNET)** – allows the app to communicate with the Snapmaker U1 over the network.
-- **Network state (ACCESS_NETWORK_STATE)** – lets the app check network connectivity.
-- **Wi-Fi state (ACCESS_WIFI_STATE)** – supports the Wi-Fi monitoring connection.
-- **Wake lock (WAKE_LOCK)** – keeps the CPU awake during monitoring and briefly wakes the display when a new print is detected.
+### Network and screen-wake permissions
 
-Some features require the user to enable a special Android setting:
+- **INTERNET** – allows the app to communicate with the Snapmaker U1 over the network.
+- **ACCESS_NETWORK_STATE** – lets the app check network connectivity.
+- **ACCESS_WIFI_STATE** – supports the Wi-Fi monitoring connection.
+- **WAKE_LOCK** – keeps the CPU awake during monitoring and briefly wakes the display when a new print is detected.
 
-- **Accessibility Service** – must be enabled manually in Android Settings. The app uses it only to request the system's screen-lock action. It does **not** retrieve or read window contents (canRetrieveWindowContent=false).
+### Settings that must be enabled by the user
+
+Some features require the user to enable a special Android setting manually:
+
+- **Accessibility Service** – used only to request the system's screen-lock action. It does **not** retrieve or read window contents (`canRetrieveWindowContent=false`).
 - **Device Administrator** – used as the screen-lock method on older Android versions (Android 8.1 / API 27 and earlier). It requests only the **Force lock** policy. On Android 9 / API 28 and later, the app uses the Accessibility screen-lock action instead.
 
-**Notifications:** On Android 13 and later, Android requires the **POST_NOTIFICATIONS** runtime permission before the app can show print-start notifications. The app asks for this permission when notification support is initialized. Notifications are disabled on LG devices because the existing screen-wake behavior works there.
+### Notifications
 
-The Accessibility Service and Device Administrator options are controlled by the user in Android Settings and can be disabled there. The app does not need access to contacts, SMS, the camera, or the microphone.
+On Android 13 and later, Android requires the **POST_NOTIFICATIONS** runtime permission before the app can show print-start notifications. The app asks for this permission when notification support is initialized.
 
-### Device compatibility
+Notifications are disabled on LG devices because the existing screen-wake behavior works there.
+
+The Accessibility Service and Device Administrator options are controlled by the user in Android Settings and can be disabled there. The app does **not** need access to contacts, SMS, the camera, or the microphone.
+
+## Device compatibility and testing
 
 I've tested the application on four devices:
 
@@ -45,13 +59,13 @@ I've tested the application on four devices:
 
 The automatic screen-lock feature has worked on all four devices during my tests.
 
-### Why am I sharing this?
+## Feedback and suggestions
 
-I'd like to hear what other Snapmaker U1 owners think about the idea.
+I'd like to hear what other Snapmaker U1 owners think about the project:
 
 - Would you find an Android monitoring app like this useful?
 - What features would you like to see added?
-- Are there any problems or improvements you would suggest?
+- Have you encountered any problems, or do you have suggestions for improvements?
 
 This is an independent community project, not an official Snapmaker application.
 
@@ -61,32 +75,3 @@ https://github.com/koicheviv/Snapmaker-U1-Monitor-IC
 Any feedback, suggestions, and ideas are welcome!
 
 Thanks!
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Snapmaker U1 Monitor IC – Android App
-
-<details>
-<summary><strong>📥 DOWNLOAD – Snapmaker U1 Monitor IC v1.0.0</strong></summary>
-
-**[Download APK files – Version 1.0.0](https://github.com/koicheviv/Snapmaker-U1-Monitor-IC/releases/tag/v1.0.0)**
-
-Open the release and expand **Assets** to find the APK files.
-
-</details>
-
----
-
-An independent Android application for monitoring your Snapmaker U1 over your local network (LAN).
-
-**Features**
-- Live printer monitoring
-- Print activity detection
-- Automatic screen wake-up
-- Screen stays awake during printing
-- Automatic screen lock after printing
-
-This is an independent community project, not an official Snapmaker application.
-
----
-
-[View all releases](https://github.com/koicheviv/Snapmaker-U1-Monitor-IC/releases)
-
